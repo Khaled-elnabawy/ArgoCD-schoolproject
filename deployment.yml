@@ -18,7 +18,7 @@ spec:
       - name: school-management-system
         image: khaledelnabawy1/school_management_system:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -30,4 +30,4 @@ spec:
     app: school-management-system
   ports:
     - port: 80
-      targetPort: 3000
+      targetPort: 80
