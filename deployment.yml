@@ -1,34 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shortlink-service
+  name: school-management-system
   labels:
-    app: shortlink-service
+    app: school-management-system
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shortlink-service
+      app: school-management-system
   template:
     metadata:
       labels:
-        app: shortlink-service
+        app: school-management-system
     spec:
       containers:
-      - name: shortlink-service
-        image: khaledelnabawy1/shortlink-service:11
+      - name: school-management-system
+        image: khaledelnabawy1/school_management_system:latest
         ports:
         - containerPort: 3000
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: shortlink-service-svc
+  name: school-management-system-svc
 spec:
   type: LoadBalancer
   selector:
-    app: shortlink-service
+    app: school-management-system
   ports:
     - port: 80
       targetPort: 3000
